@@ -1,33 +1,27 @@
 #include <Arduino.h>
 #include "lib/control_key.h"
 // put function declarations here:
-
+Servo servo;
 void setup()
 {
   // put your setup code here, to run once:
   Serial.begin(115200);
-  init_control();
+  servo.attach(27);
+  // init_control();
 }
 
 void loop()
 {
-  int servoPosition;
-  servoPosition = servoPins[0].servo.read();
-  // Serial.println(servoPosition);
-  // Serial.println(servoPosition+1);
-  // Serial.println(servoPosition-1);
-
-  if (Serial.available() > 0)
-  {
-    char data_control = Serial.read();
-    digitalWrite(32,HIGH);
-    control_keyboard(data_control);
+  for (int i= 0;i<=180;i++){
+    servo.write(i);
+    delay(10);
   }
-    digitalWrite(27,LOW);
-    digitalWrite(26,LOW);
+  // if (Serial.available() > 0)
+  // {
+  //   char data_control = Serial.read();
+  //   digitalWrite(32,HIGH);
+  //   control_keyboard(data_control);
+  // }
 
-    digitalWrite(25,LOW);
-
-    digitalWrite(33,LOW);
 
 }

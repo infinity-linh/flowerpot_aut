@@ -25,7 +25,7 @@ void init_control()
     for (int i = 0; i < servoPins.size(); i++)
     {
         servoPins[i].servo.attach(servoPins[i].servoPin);
-        servoPins[i].servo.write(servoPins[i].initialPosition);
+        // servoPins[i].servo.write(servoPins[i].initialPosition);
     }
 }
 
